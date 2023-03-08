@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>gird_2</title>
+  <style>
+    
+    .wrap{display:grid; width: 100%; grid-template-rows: 50px 150px 50px; grid-template-columns: 30% 70%; ; grid-gap: 10px}
+    .wrap div{padding: 10px;background:lightblue;font-size: 20px;}
+    
+     .header{grid-column: 1 / -1; grid-row: 1 / 2;}
+        .snb{grid-column: 1 / 2;  grid-row: 2 / 3;} 
+    .content{grid-column: 2 / 3;  grid-row: 2 / 3;}
+     .footer{grid-column: 1 / -1; grid-row: 3 / 4;}
+
+
+  </style>
+
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">header</div>
+    <div class="snb">sidemenu</div>
+    <div class="content">content</div>
+    <div class="footer">footer</div>
+  </div>
+</body>
+</html>

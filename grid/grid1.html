@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid_1</title>
+  <style>
+    .grid-container{
+      display: grid;
+      grid-template-rows: 70px 200px 70px; /* 그리드 열의 높이 */
+      grid-template-columns: repeat(3,1fr);/* fr: fractional unit 사용가능한 공간에 대한 비율 */
+      grid-gap: 10px; /* grid-row-gap, grid-column-gap 행간, 열간 간격 설정 */
+      width: 600px;
+    }
+    
+    .header{grid-column: 1 / -1 ; grid-row: 1 / 2;}/* 경계선 번호 처음(1)부터 끝(-1)까지 차지 */
+     /* grid-column-start : 1; grid-column-end : 4 (= -1); */
+     /* grid-row-start : 1 ; grid-column-end : 2 */
+    .nav{grid-column: 1 / 2; grid-row: 2 / 3;}
+    .main{grid-column: 2 / 3; grid-row: 2 / 3;}
+    .aside{grid-column: 3 / 4; grid-row: 2 / 3;}
+    .footer{grid-column: 1 / -1; grid-row: 3 / 4;}
+    .grid-item{background-color: #0418a0; color: #fff; display:flex; justify-content: center; align-items: center;}
+  </style>
+</head>
+<body>
+    <div class="grid-container">
+      <div class="grid-item header">Header</div>
+      <div class="grid-item nav">Nav</div>
+      <div class="grid-item main">Main Content</div>
+      <div class="grid-item aside">aside</div>
+      <div class="grid-item footer">Footer</div>
+    </div>
+</body>
+</html>
