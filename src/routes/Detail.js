@@ -1,11 +1,18 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import '../styles/Detail.css'
 
 function Detail() {
+  
 
   const location = useLocation();
   console.log(location)
+  
+  const navigate = useNavigate();
+    if(location.state === undefined);
+    navigate('/')
+  
+  
   const {genres, id, poster, summary, title, year} = location.state;
 
   return (

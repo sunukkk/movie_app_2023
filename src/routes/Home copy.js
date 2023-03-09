@@ -1,32 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import Movie from '../components/Movie';
 import '../styles/Home.css';
 
+export class Home extends Component {
 
+  state = {
+    isLoading: true,
+    movies : [],
+  }
 
-function Home() {
+  componentDidMount(){
+    // setTimeout(() => {
+    //   this.setState({isLoading:false});
+    // }, 6000)
+    this.getMovies();
+  }
 
-  // state = {
-  //   isLoading: true,
-  //   movies : [],
-  // }
-
-  const [isLoading, setIsLoading] = useState(true);
-  const [movies, setMovies] = useState([])
-
-  // componentDidMount() {
-  //   // setTimeout(() => {
-  //   //   this.setState({isLoading:false});
-  //   // }, 6000)
-  //   this.getMovies();
-  // }
-
-useEffect(() => {
-  getMovies();  
-}, []) 
-
-  const getMovies = async () => {
+  getMovies = async () => {
     const {
       data: {
         data : {
@@ -36,17 +27,14 @@ useEffect(() => {
     } =
     await axios.get('https://yts-proxy.now.sh/list_movies.json?genre=animation&sort_by=like_count')
     
+    this.setState({
+      isLoading:false,
+      movies, 
+  })
 
-
-  //   this.setState({
-  //     isLoading:false,
-  //     movies, 
-  // })
-    setIsLoading(false);
-    setMovies(movies);
   }
-
-    // const{isLoading, movies} = this.state; //구조분해할당
+  render() {
+    const{isLoading, movies} = this.state; //구조분해할당
     return (
       
       <section className="container">
@@ -74,7 +62,7 @@ useEffect(() => {
       </section>
       
     )
-  
+  }
 }
 
 export default Home;
